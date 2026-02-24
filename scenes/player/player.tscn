@@ -9,7 +9,9 @@ size = Vector2(128, 128)
 [node name="Player" type="CharacterBody2D" unique_id=1110943076]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_dovo2")
+_push_force = 500.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=579498428]
 texture = ExtResource("1_3vyb7")

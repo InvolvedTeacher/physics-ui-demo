@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://b3vb5u14ohqcp"]
 
 [ext_resource type="PackedScene" uid="uid://31m13dhc45mo" path="res://scenes/player/player.tscn" id="1_72ix8"]
+[ext_resource type="PackedScene" uid="uid://dhbd083go854h" path="res://scenes/levels/platform.tscn" id="2_2vj2h"]
+[ext_resource type="PackedScene" uid="uid://c22sbjc5rlmj" path="res://scenes/objects/box.tscn" id="3_y0acb"]
+[ext_resource type="PackedScene" uid="uid://kaxmyvuomme7" path="res://scenes/objects/circle.tscn" id="4_j4d2a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgp6g"]
 size = Vector2(1160, 49)
@@ -22,3 +25,19 @@ offset_bottom = 653.0
 
 [node name="Player" parent="." unique_id=1110943076 instance=ExtResource("1_72ix8")]
 position = Vector2(113, 468)
+
+[node name="Platform" parent="." unique_id=937745556 instance=ExtResource("2_2vj2h")]
+position = Vector2(380, 445)
+
+[node name="Platform2" parent="." unique_id=1160912330 instance=ExtResource("2_2vj2h")]
+position = Vector2(695, 335)
+
+[node name="Platform3" parent="." unique_id=973832248 instance=ExtResource("2_2vj2h")]
+position = Vector2(148, 265)
+rotation = 0.74700093
+
+[node name="Box" parent="." unique_id=2046812935 instance=ExtResource("3_y0acb")]
+position = Vector2(694, 282)
+
+[node name="Circle" parent="." unique_id=1104626385 instance=ExtResource("4_j4d2a")]
+position = Vector2(150, 168)

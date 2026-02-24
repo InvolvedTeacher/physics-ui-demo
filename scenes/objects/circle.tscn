@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://kaxmyvuomme7"]
+
+[ext_resource type="Texture2D" uid="uid://bfrvlobdjqwsu" path="res://assets/objects/circle.png" id="1_v16ut"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y0acb"]
+friction = 0.2
+bounce = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j4d2a"]
+radius = 32.01562
+
+[node name="Circle" type="RigidBody2D" unique_id=1104626385]
+collision_layer = 4
+collision_mask = 7
+mass = 0.2
+physics_material_override = SubResource("PhysicsMaterial_y0acb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1536321178]
+self_modulate = Color(1, 0.14509805, 0.14901961, 1)
+texture_filter = 1
+texture = ExtResource("1_v16ut")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1580741763]
+shape = SubResource("CircleShape2D_j4d2a")

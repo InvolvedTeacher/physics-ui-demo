@@ -5,6 +5,7 @@ public partial class Player : CharacterBody2D
 {
 	[Export] private float _speed = 400.0f;
 	[Export] private float _jump_velocity = -600.0f;
+	[Export] private float _push_force = 80.0f;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -27,6 +28,14 @@ public partial class Player : CharacterBody2D
 			velocity.X = direction * _speed;
 
 		Velocity = velocity;
-		MoveAndSlide();
+		if (MoveAndSlide())
+		{
+			for (int i = 0; i < GetSlideCollisionCount(); ++i)
+			{
+				KinematicCollision2D collision = GetSlideCollision(i);
+				if (collision.GetCollider().GetType().Name.Equals("RigidBody2D"))
+					((RigidBody2D)collision.GetCollider()).ApplyCentralForce(-collision.GetNormal() * _push_force);
+			}
+		}
 	}
 }
