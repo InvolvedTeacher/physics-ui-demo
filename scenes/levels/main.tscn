@@ -9,6 +9,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgp6g"]
 size = Vector2(1160, 49)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u81e1"]
+size = Vector2(350, 617.5)
+
 [node name="Main" type="Node" unique_id=429409772]
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1687904274]
@@ -38,12 +41,27 @@ position = Vector2(148, 265)
 rotation = 0.74700093
 
 [node name="Box" parent="." unique_id=2046812935 instance=ExtResource("3_y0acb")]
-position = Vector2(694, 282)
+position = Vector2(209, 555)
 
 [node name="Circle" parent="." unique_id=1104626385 instance=ExtResource("4_j4d2a")]
 position = Vector2(150, 168)
 
-[node name="PhysicsUI" parent="." unique_id=625265741 node_paths=PackedStringArray("_box", "_ball", "_player") instance=ExtResource("5_u81e1")]
+[node name="Antigrav" type="Area2D" parent="." unique_id=1310299592]
+position = Vector2(700, 300)
+collision_layer = 8
+collision_mask = 6
+monitoring = false
+monitorable = false
+priority = 1
+gravity_space_override = 3
+gravity_point_center = Vector2(0, -1)
+gravity_direction = Vector2(0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Antigrav" unique_id=1681939575]
+shape = SubResource("RectangleShape2D_u81e1")
+
+[node name="PhysicsUI" parent="." unique_id=625265741 node_paths=PackedStringArray("_player", "_box", "_ball", "_antigravity") instance=ExtResource("5_u81e1")]
+_player = NodePath("../Player")
 _box = NodePath("../Box")
 _ball = NodePath("../Circle")
-_player = NodePath("../Player")
+_antigravity = NodePath("../Antigrav")

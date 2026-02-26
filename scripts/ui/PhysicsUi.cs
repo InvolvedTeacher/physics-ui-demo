@@ -3,9 +3,10 @@ using System;
 
 public partial class PhysicsUi : Control
 {
+	[Export] private CharacterBody2D _player;
 	[Export] private RigidBody2D _box;
 	[Export] private RigidBody2D _ball;
-	[Export] private CharacterBody2D _player;
+	[Export] private Area2D _antigravity;
 
 	private bool _is_menu_open;
 
@@ -95,5 +96,20 @@ public partial class PhysicsUi : Control
 			default:
 				break;
 		}
+	}
+
+	void OnAntigravityValueChanged(float new_value)
+	{
+		_antigravity.Gravity = new_value;
+	}
+
+	void OnAntigravityXChanged(float new_value)
+	{
+		_antigravity.GravityDirection = new Vector2(new_value, _antigravity.GravityDirection.Y);
+	}
+
+	void OnAntigravityYChanged(float new_value)
+	{
+		_antigravity.GravityDirection = new Vector2(_antigravity.GravityDirection.X, new_value);
 	}
 }
