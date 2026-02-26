@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dtnsae420cohd"]
+
+[ext_resource type="Script" uid="uid://cwydg86cujon5" path="res://scripts/ui/PhysicsUi.cs" id="1_s206m"]
+
+[node name="PhysicsUI" type="Control" unique_id=625265741]
+layout_mode = 3
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+script = ExtResource("1_s206m")
+
+[node name="MainPanelContainer" type="PanelContainer" parent="." unique_id=654085445]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -109.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="MainPanelContainer" unique_id=457146616]
+layout_mode = 2
+current_tab = 0
+
+[node name="Player" type="VBoxContainer" parent="MainPanelContainer/TabContainer" unique_id=4656128]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Box" type="VBoxContainer" parent="MainPanelContainer/TabContainer" unique_id=744118425]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Ball" type="VBoxContainer" parent="MainPanelContainer/TabContainer" unique_id=257103472]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
