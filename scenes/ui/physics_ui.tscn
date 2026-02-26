@@ -4,11 +4,8 @@
 
 [node name="PhysicsUI" type="Control" unique_id=625265741]
 layout_mode = 3
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 8
 script = ExtResource("1_s206m")
@@ -24,20 +21,108 @@ offset_left = -109.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="TabContainer" type="TabContainer" parent="MainPanelContainer" unique_id=457146616]
+[node name="MarginContainer" type="MarginContainer" parent="MainPanelContainer" unique_id=1757162567]
 layout_mode = 2
-current_tab = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
-[node name="Player" type="VBoxContainer" parent="MainPanelContainer/TabContainer" unique_id=4656128]
+[node name="TabContainer" type="TabContainer" parent="MainPanelContainer/MarginContainer" unique_id=457146616]
+layout_mode = 2
+current_tab = 1
+
+[node name="Player" type="MarginContainer" parent="MainPanelContainer/MarginContainer/TabContainer" unique_id=1461439501]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Box" type="VBoxContainer" parent="MainPanelContainer/TabContainer" unique_id=744118425]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanelContainer/MarginContainer/TabContainer/Player" unique_id=4656128]
 visible = false
 layout_mode = 2
+
+[node name="Box" type="MarginContainer" parent="MainPanelContainer/MarginContainer/TabContainer" unique_id=1371325260]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
 metadata/_tab_index = 1
 
-[node name="Ball" type="VBoxContainer" parent="MainPanelContainer/TabContainer" unique_id=257103472]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanelContainer/MarginContainer/TabContainer/Box" unique_id=744118425]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainPanelContainer/MarginContainer/TabContainer/Box/VBoxContainer" unique_id=2091670346]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainPanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/HBoxContainer" unique_id=1260425371]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mass"
+
+[node name="MassSpinBox" type="SpinBox" parent="MainPanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/HBoxContainer" unique_id=2132601052]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.1
+max_value = 10.0
+step = 0.0
+value = 0.5
+alignment = 1
+suffix = "kg"
+
+[node name="PhysicsMaterialFoldableContainer" type="FoldableContainer" parent="MainPanelContainer/MarginContainer/TabContainer/Box/VBoxContainer" unique_id=812456973]
+layout_mode = 2
+title = "Physics Material"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/PhysicsMaterialFoldableContainer" unique_id=1614718871]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainPanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/PhysicsMaterialFoldableContainer/VBoxContainer" unique_id=797529692]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainPanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/PhysicsMaterialFoldableContainer/VBoxContainer/HBoxContainer" unique_id=1362089457]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Friction"
+
+[node name="FrictionHSlider" type="HSlider" parent="MainPanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/PhysicsMaterialFoldableContainer/VBoxContainer/HBoxContainer" unique_id=1863019868]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+value = 0.5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainPanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/PhysicsMaterialFoldableContainer/VBoxContainer" unique_id=1505322258]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainPanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/PhysicsMaterialFoldableContainer/VBoxContainer/HBoxContainer2" unique_id=732110312]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Bounce"
+
+[node name="BounceHSlider" type="HSlider" parent="MainPanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/PhysicsMaterialFoldableContainer/VBoxContainer/HBoxContainer2" unique_id=560122039]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+
+[node name="CheckBox" type="CheckBox" parent="MainPanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/PhysicsMaterialFoldableContainer/VBoxContainer/HBoxContainer2" unique_id=186341362]
+layout_mode = 2
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/checkbox_unchecked_color = Color(0.13333334, 0.13333334, 0.13333334, 0.8901961)
+text = "Absorbent"
+
+[node name="Ball" type="MarginContainer" parent="MainPanelContainer/MarginContainer/TabContainer" unique_id=323351752]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanelContainer/MarginContainer/TabContainer/Ball" unique_id=257103472]
+layout_mode = 2
+
+[connection signal="value_changed" from="MainPanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/HBoxContainer/MassSpinBox" to="." method="OnMassValueChanged"]
+[connection signal="value_changed" from="MainPanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/PhysicsMaterialFoldableContainer/VBoxContainer/HBoxContainer/FrictionHSlider" to="." method="OnFrictionSliderValueChanged"]
+[connection signal="value_changed" from="MainPanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/PhysicsMaterialFoldableContainer/VBoxContainer/HBoxContainer2/BounceHSlider" to="." method="OnBounceSliderValueChanged"]
+[connection signal="toggled" from="MainPanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/PhysicsMaterialFoldableContainer/VBoxContainer/HBoxContainer2/CheckBox" to="." method="OnAbsorbentToggled"]
