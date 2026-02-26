@@ -43,5 +43,7 @@ position = Vector2(694, 282)
 [node name="Circle" parent="." unique_id=1104626385 instance=ExtResource("4_j4d2a")]
 position = Vector2(150, 168)
 
-[node name="PhysicsUI" parent="." unique_id=625265741 node_paths=PackedStringArray("_box") instance=ExtResource("5_u81e1")]
+[node name="PhysicsUI" parent="." unique_id=625265741 node_paths=PackedStringArray("_box", "_ball", "_player") instance=ExtResource("5_u81e1")]
 _box = NodePath("../Box")
+_ball = NodePath("../Circle")
+_player = NodePath("../Player")

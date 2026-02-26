@@ -4,6 +4,8 @@ using System;
 public partial class PhysicsUi : Control
 {
 	[Export] private RigidBody2D _box;
+	[Export] private RigidBody2D _ball;
+	[Export] private CharacterBody2D _player;
 
 	private bool _is_menu_open;
 
@@ -11,6 +13,11 @@ public partial class PhysicsUi : Control
 	{
 		if (_box is null)
 			GD.PushError("[PhysicsUI] _box is null.");
+		if (_ball is null)
+			GD.PushError("[PhysicsUI] _ball is null.");
+		if (_player is null)
+			GD.PushError("[PhysicsUI] _player is null.");
+
 		_is_menu_open = false;
 		SetAnchorsPreset(LayoutPreset.LeftWide, true);
 	}
@@ -30,23 +37,63 @@ public partial class PhysicsUi : Control
 			SetAnchorsPreset(LayoutPreset.LeftWide, true);
 	}
 
-	void OnMassValueChanged(float new_value)
+	void OnMassValueChanged(float new_value, string body_name)
 	{
-		_box.Mass = new_value;
+		switch (body_name)
+		{
+			case "box":
+				_box.Mass = new_value;
+				break;
+			case "ball":
+				_ball.Mass = new_value;
+				break;
+			default:
+				break;
+		}
 	}
 
-	void OnFrictionSliderValueChanged(float new_value)
+	void OnFrictionSliderValueChanged(float new_value, string body_name)
 	{
-		_box.PhysicsMaterialOverride.Friction = new_value;
+		switch (body_name)
+		{
+			case "box":
+				_box.PhysicsMaterialOverride.Friction = new_value;
+				break;
+			case "ball":
+				_ball.PhysicsMaterialOverride.Friction = new_value;
+				break;
+			default:
+				break;
+		}
 	}
 
-	void OnBounceSliderValueChanged(float new_value)
+	void OnBounceSliderValueChanged(float new_value, string body_name)
 	{
-		_box.PhysicsMaterialOverride.Bounce = new_value;
+		switch (body_name)
+		{
+			case "box":
+				_box.PhysicsMaterialOverride.Bounce = new_value;
+				break;
+			case "ball":
+				_ball.PhysicsMaterialOverride.Bounce = new_value;
+				break;
+			default:
+				break;
+		}
 	}
 
-	void OnAbsorbentToggled(bool new_value)
+	void OnAbsorbentToggled(bool new_value, string body_name)
 	{
-		_box.PhysicsMaterialOverride.Absorbent = new_value;
+		switch (body_name)
+		{
+			case "box":
+				_box.PhysicsMaterialOverride.Absorbent = new_value;
+				break;
+			case "ball":
+				_ball.PhysicsMaterialOverride.Absorbent = new_value;
+				break;
+			default:
+				break;
+		}
 	}
 }
