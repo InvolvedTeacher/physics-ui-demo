@@ -1,0 +1,257 @@
+[gd_scene format=3 uid="uid://dtnsae420cohd"]
+
+[ext_resource type="Script" uid="uid://0ea2jfmm03uu" path="res://scenes/ui/PhysicsUi.cs" id="1_s206m"]
+
+[node name="PhysicsUI" type="Control" unique_id=580934739 node_paths=PackedStringArray("_box_mass_slider", "_box_mass_spinbox", "_box_friction_slider", "_box_friction_spinbox", "_box_bounce_slider", "_box_bounce_spinbox", "_ball_mass_slider", "_ball_mass_spinbox", "_ball_friction_slider", "_ball_friction_spinbox", "_ball_bounce_slider", "_ball_bounce_spinbox")]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+script = ExtResource("1_s206m")
+_box_mass_slider = NodePath("PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/Mass/BoxMassHSlider")
+_box_mass_spinbox = NodePath("PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/Mass/BoxMassSpinBox")
+_box_friction_slider = NodePath("PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer/Friction/BoxFrictionHSlider")
+_box_friction_spinbox = NodePath("PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer/Friction/BoxFrictionSpinBox")
+_box_bounce_slider = NodePath("PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer/Bounce/BoxBounceHSlider")
+_box_bounce_spinbox = NodePath("PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer/Bounce/BoxBounceSpinBox")
+_ball_mass_slider = NodePath("PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/Mass/BallMassHSlider")
+_ball_mass_spinbox = NodePath("PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/Mass/BallMassSpinBox")
+_ball_friction_slider = NodePath("PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer/Friction/BallFrictionHSlider")
+_ball_friction_spinbox = NodePath("PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer/Friction/BallFrictionSpinBox")
+_ball_bounce_slider = NodePath("PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer/Bounce/BallBounceHSlider")
+_ball_bounce_spinbox = NodePath("PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer/Bounce/BallBounceSpinBox")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2052127312]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1144310362]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TabContainer" type="TabContainer" parent="PanelContainer/MarginContainer" unique_id=1300523405]
+layout_mode = 2
+current_tab = 0
+
+[node name="Box" type="MarginContainer" parent="PanelContainer/MarginContainer/TabContainer" unique_id=1046754577]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Box" unique_id=53961525]
+layout_mode = 2
+
+[node name="Mass" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer" unique_id=1222344545]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/Mass" unique_id=1491826221]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mass"
+
+[node name="BoxMassHSlider" type="HSlider" parent="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/Mass" unique_id=1539085682]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.1
+max_value = 5.0
+step = 0.1
+value = 0.5
+
+[node name="BoxMassSpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/Mass" unique_id=1622987097]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.1
+max_value = 5.0
+step = 0.1
+value = 0.5
+suffix = "kg"
+
+[node name="FoldableContainer" type="FoldableContainer" parent="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer" unique_id=1264375744]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer" unique_id=1936493695]
+layout_mode = 2
+
+[node name="Friction" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer" unique_id=643617990]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer/Friction" unique_id=456006987]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Friction"
+
+[node name="BoxFrictionHSlider" type="HSlider" parent="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer/Friction" unique_id=1860353037]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="BoxFrictionSpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer/Friction" unique_id=2131281918]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="Bounce" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer" unique_id=1427742959]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer/Bounce" unique_id=1384976]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Bounce"
+
+[node name="BoxBounceHSlider" type="HSlider" parent="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer/Bounce" unique_id=1267927599]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
+max_value = 1.0
+step = 0.01
+
+[node name="BoxBounceSpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer/Bounce" unique_id=2131450945]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+
+[node name="Absorbent" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer" unique_id=1153818221]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="BoxAbsorbentCheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer/Absorbent" unique_id=519750666]
+layout_mode = 2
+theme_override_colors/checkbox_unchecked_color = Color(0.28118682, 0.28118688, 0.28118682, 1)
+text = "Absorbent"
+
+[node name="Ball" type="MarginContainer" parent="PanelContainer/MarginContainer/TabContainer" unique_id=1839179711]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Ball" unique_id=519598998]
+layout_mode = 2
+
+[node name="Mass" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer" unique_id=1937474049]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/Mass" unique_id=1729733298]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mass"
+
+[node name="BallMassHSlider" type="HSlider" parent="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/Mass" unique_id=1373125796]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.1
+max_value = 5.0
+step = 0.1
+value = 0.2
+
+[node name="BallMassSpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/Mass" unique_id=292161649]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.1
+max_value = 5.0
+step = 0.1
+value = 0.2
+suffix = "kg"
+
+[node name="FoldableContainer" type="FoldableContainer" parent="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer" unique_id=408372145]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer" unique_id=723798920]
+layout_mode = 2
+
+[node name="Friction" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer" unique_id=978277663]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer/Friction" unique_id=1434104513]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Friction"
+
+[node name="BallFrictionHSlider" type="HSlider" parent="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer/Friction" unique_id=968648394]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
+max_value = 1.0
+step = 0.01
+value = 0.2
+
+[node name="BallFrictionSpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer/Friction" unique_id=586559949]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 0.2
+
+[node name="Bounce" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer" unique_id=2004466246]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer/Bounce" unique_id=1194503565]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Bounce"
+
+[node name="BallBounceHSlider" type="HSlider" parent="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer/Bounce" unique_id=2002207129]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="BallBounceSpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer/Bounce" unique_id=372442371]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="Absorbent" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer" unique_id=2125358310]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="BallAbsorbentCheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer/Absorbent" unique_id=531599668]
+layout_mode = 2
+theme_override_colors/checkbox_unchecked_color = Color(0.28118682, 0.28118688, 0.28118682, 1)
+text = "Absorbent"
+
+[connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/Mass/BoxMassHSlider" to="." method="OnMassChanged" binds= ["box"]]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/Mass/BoxMassSpinBox" to="." method="OnMassChanged" binds= ["box"]]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer/Friction/BoxFrictionHSlider" to="." method="OnFrictionChanged" binds= ["box"]]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer/Friction/BoxFrictionSpinBox" to="." method="OnFrictionChanged" binds= ["box"]]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer/Bounce/BoxBounceHSlider" to="." method="OnBounceChanged" binds= ["box"]]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer/Bounce/BoxBounceSpinBox" to="." method="OnBounceChanged" binds= ["box"]]
+[connection signal="toggled" from="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer/Absorbent/BoxAbsorbentCheckBox" to="." method="OnAbsorbentToggled" binds= ["box"]]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/Mass/BallMassHSlider" to="." method="OnMassChanged" binds= ["ball"]]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/Mass/BallMassSpinBox" to="." method="OnMassChanged" binds= ["ball"]]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer/Friction/BallFrictionHSlider" to="." method="OnFrictionChanged" binds= ["ball"]]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer/Friction/BallFrictionSpinBox" to="." method="OnFrictionChanged" binds= ["ball"]]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer/Bounce/BallBounceHSlider" to="." method="OnBounceChanged" binds= ["ball"]]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer/Bounce/BallBounceSpinBox" to="." method="OnBounceChanged" binds= ["ball"]]
+[connection signal="toggled" from="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer/Absorbent/BallAbsorbentCheckBox" to="." method="OnAbsorbentToggled" binds= ["ball"]]

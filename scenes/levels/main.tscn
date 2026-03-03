@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dhbd083go854h" path="res://scenes/levels/platform.tscn" id="2_2vj2h"]
 [ext_resource type="PackedScene" uid="uid://c22sbjc5rlmj" path="res://scenes/objects/box.tscn" id="3_y0acb"]
 [ext_resource type="PackedScene" uid="uid://kaxmyvuomme7" path="res://scenes/objects/circle.tscn" id="4_j4d2a"]
+[ext_resource type="PackedScene" uid="uid://dtnsae420cohd" path="res://scenes/ui/physics_ui.tscn" id="5_u81e1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgp6g"]
 size = Vector2(1160, 49)
@@ -41,3 +42,7 @@ position = Vector2(694, 282)
 
 [node name="Circle" parent="." unique_id=1104626385 instance=ExtResource("4_j4d2a")]
 position = Vector2(150, 168)
+
+[node name="PhysicsUI" parent="." unique_id=580934739 node_paths=PackedStringArray("_box", "_ball") instance=ExtResource("5_u81e1")]
+_box = NodePath("../Box")
+_ball = NodePath("../Circle")
