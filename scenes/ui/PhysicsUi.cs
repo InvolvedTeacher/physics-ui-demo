@@ -19,6 +19,8 @@ public partial class PhysicsUi : Control
 	[Export] private Slider _ball_bounce_slider;
 	[Export] private SpinBox _ball_bounce_spinbox;
 
+	[Export] private Area2D _gravity_area;
+
 	private bool _is_menu_open;
 
 	// Called when the node enters the scene tree for the first time.
@@ -123,5 +125,18 @@ public partial class PhysicsUi : Control
 				GD.PushWarning("[PhysicsUI] Warning: body name not recognised (" + body_selected + ").");
 				break;
 		}
+	}
+
+	private void OnGravityAreaAccelerationChanged(float new_value)
+	{
+		_gravity_area.Gravity = new_value;
+	}
+
+	private void OnGravityAreaDirectionChanged(float new_value, bool x)
+	{
+		if (x)
+			_gravity_area.GravityDirection = new Vector2(new_value, _gravity_area.GravityDirection.Y);
+		else
+			_gravity_area.GravityDirection = new Vector2(_gravity_area.GravityDirection.X, new_value);
 	}
 }

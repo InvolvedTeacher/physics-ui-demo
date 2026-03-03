@@ -77,6 +77,7 @@ min_value = 0.1
 max_value = 5.0
 step = 0.1
 value = 0.5
+alignment = 1
 suffix = "kg"
 
 [node name="FoldableContainer" type="FoldableContainer" parent="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer" unique_id=1264375744]
@@ -108,6 +109,7 @@ size_flags_horizontal = 3
 max_value = 1.0
 step = 0.01
 value = 0.5
+alignment = 1
 
 [node name="Bounce" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer" unique_id=1427742959]
 layout_mode = 2
@@ -130,6 +132,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.01
+alignment = 1
 
 [node name="Absorbent" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/FoldableContainer/VBoxContainer" unique_id=1153818221]
 layout_mode = 2
@@ -176,6 +179,7 @@ min_value = 0.1
 max_value = 5.0
 step = 0.1
 value = 0.2
+alignment = 1
 suffix = "kg"
 
 [node name="FoldableContainer" type="FoldableContainer" parent="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer" unique_id=408372145]
@@ -207,6 +211,7 @@ size_flags_horizontal = 3
 max_value = 1.0
 step = 0.01
 value = 0.2
+alignment = 1
 
 [node name="Bounce" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer" unique_id=2004466246]
 layout_mode = 2
@@ -231,6 +236,7 @@ size_flags_horizontal = 3
 max_value = 1.0
 step = 0.01
 value = 0.5
+alignment = 1
 
 [node name="Absorbent" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer" unique_id=2125358310]
 layout_mode = 2
@@ -240,6 +246,69 @@ size_flags_horizontal = 8
 layout_mode = 2
 theme_override_colors/checkbox_unchecked_color = Color(0.28118682, 0.28118688, 0.28118682, 1)
 text = "Absorbent"
+
+[node name="Gravity" type="MarginContainer" parent="PanelContainer/MarginContainer/TabContainer" unique_id=912850614]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Gravity" unique_id=592831519]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Gravity/VBoxContainer" unique_id=1463007386]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Gravity/VBoxContainer/HBoxContainer" unique_id=190688302]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Acceleration"
+
+[node name="AccelerationSpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/TabContainer/Gravity/VBoxContainer/HBoxContainer" unique_id=125057013]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 5000.0
+step = 10.0
+value = 980.0
+alignment = 1
+suffix = "px/s^2"
+custom_arrow_step = 10.0
+custom_arrow_round = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Gravity/VBoxContainer" unique_id=1478557340]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Gravity/VBoxContainer/HBoxContainer2" unique_id=1653372013]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+text = "Direction"
+
+[node name="XSpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/TabContainer/Gravity/VBoxContainer/HBoxContainer2" unique_id=210585424]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -1.0
+max_value = 1.0
+rounded = true
+alignment = 1
+prefix = "x: "
+custom_arrow_step = 1.0
+custom_arrow_round = true
+
+[node name="YSpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/TabContainer/Gravity/VBoxContainer/HBoxContainer2" unique_id=827628148]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -1.0
+max_value = 1.0
+value = -1.0
+rounded = true
+alignment = 1
+prefix = "y: "
+custom_arrow_step = 1.0
+custom_arrow_round = true
 
 [connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/Mass/BoxMassHSlider" to="." method="OnMassChanged" binds= ["box"]]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/Box/VBoxContainer/Mass/BoxMassSpinBox" to="." method="OnMassChanged" binds= ["box"]]
@@ -255,3 +324,6 @@ text = "Absorbent"
 [connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer/Bounce/BallBounceHSlider" to="." method="OnBounceChanged" binds= ["ball"]]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer/Bounce/BallBounceSpinBox" to="." method="OnBounceChanged" binds= ["ball"]]
 [connection signal="toggled" from="PanelContainer/MarginContainer/TabContainer/Ball/VBoxContainer/FoldableContainer/VBoxContainer/Absorbent/BallAbsorbentCheckBox" to="." method="OnAbsorbentToggled" binds= ["ball"]]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/Gravity/VBoxContainer/HBoxContainer/AccelerationSpinBox" to="." method="OnGravityAreaAccelerationChanged"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/Gravity/VBoxContainer/HBoxContainer2/XSpinBox" to="." method="OnGravityAreaDirectionChanged" binds= [true]]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/Gravity/VBoxContainer/HBoxContainer2/YSpinBox" to="." method="OnGravityAreaDirectionChanged" binds= [false]]
